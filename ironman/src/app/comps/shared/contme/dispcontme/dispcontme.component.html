@@ -1,0 +1,24 @@
+<h1 class="text-center" *ngIf="listofcontacts">Contacts to display</h1>
+<hr>
+
+<div class="row">
+  <div class="col-md-4" *ngFor="let lop of listofcontacts">
+    <div class="card mb-4 shadow-sm">
+      <div class="card-header">
+        <h4 class="my-0 font-weight-normal">{{lop.name}}</h4>
+      </div>
+      <div class="card-body">
+        <h5 class="card-title pricing-card-title">{{lop.email}}</h5>
+        <ul class="list-unstyled mt-3 mb-4">
+          <li>{{lop.phone}}</li>
+          <br>
+          <li>{{lop.company.catchPhrase}}</li>
+        <br>
+        </ul>
+        <div style="text-align:center">
+          <a routerLink="/7/{{lop.id}}">Open</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

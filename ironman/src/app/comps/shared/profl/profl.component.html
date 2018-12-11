@@ -1,0 +1,37 @@
+<main>
+  <div>
+    <h2 class="text-center">Profile High-Lights</h2>
+    <hr>
+    <ul id="hunger">
+      <li *ngFor="let state of arraydata; let i = index" [attr.data-index]="i">
+        {{state.value}}
+        <button style="float: right;" (click)="onItemDeleted(i)">X</button>
+        <br>
+        <br>
+      </li>
+
+      <li *ngFor="let task of tasks; let j = index" [attr.data-index]="j">
+        {{ task.name }}
+        <button style="float: right;" (click)="onItemDeleted('j+100')">X</button>
+        <br>
+        <br>
+      </li>
+    </ul>
+
+
+
+
+    <form>
+      <div class="row">
+        <div class="col">
+          <input name="frm" [(ngModel)]="task" type="text" class="form-control" placeholder="Enter Latest Profile update">
+        </div>
+      </div>
+    </form>
+    <br>
+
+    <div>
+      <input type="button" class="btn btn-primary btn-lg btn-block" value="Add" (click)="Adddata()">
+    </div>
+  </div>
+</main>

@@ -1,0 +1,54 @@
+<main>
+  <h2 style="text-align: center">Projects</h2>
+  <br>
+  <hr>
+  <br>
+
+  <table class="table table-hover">
+    <tr>
+      <th scope="col">S.No</th>
+      <th scope="col">Project Titles</th>
+      <th scope="col">Description</th>
+      <th scope="col">Industrial Use</th>
+      <th></th>
+    </tr>
+    <tr *ngFor="let state of projectdata; let i = index" [attr.data-index]="i">
+      <td>{{state.clm1}}</td>
+      <td>{{state.clm2}}</td>
+      <td>{{state.clm3}}</td>
+      <td>{{state.clm4}}</td>
+      <td>
+        <button style="float: right;" (click)="onItemDeleted(i)">X</button>
+      </td>
+
+
+      <tr *ngFor="let new of tabs; let j = index" [attr.data-index]="j">
+        <td>{{4+j}}</td>
+        <td>{{new.title}}</td>
+        <td>{{new.description}}</td>
+        <td>{{new.industry}}</td>
+        <td>
+          <button style="float: right;" (click)=onItemDeleted()>X</button>
+        </td>
+
+
+  </table>
+  <div>
+    <input type="button" class="btn btn-primary btn-lg btn-block" value="Add Row" (click)="Addtableelement()">
+  </div>
+  <br>
+  <form>
+    <div class="row">
+      <div class="col">
+        <input type="text" class="form-control" placeholder="Project Title" [(ngModel)]="Newtab.title" name="title">
+      </div>
+      <div class="col">
+        <input type="text" class="form-control" placeholder="Description" [(ngModel)]="Newtab.description" name="description">
+      </div>
+      <div class="col">
+        <input type="text" class="form-control" placeholder="Industrial Use" [(ngModel)]="Newtab.industry" name="industry">
+      </div>
+
+    </div>
+  </form>
+</main>

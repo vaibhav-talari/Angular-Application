@@ -1,0 +1,76 @@
+<h1 class="text-center">Contact</h1>
+<hr>
+
+<div class="card mb-4 shadow-sm text-center" *ngIf="contactobject">
+
+  <div class="card-header">
+    <h4 class="my-0 font-weight-normal ">{{contactobject.name}}</h4>
+  </div>
+  <div class="card-body">
+    <h1 class="card-title pricing-card-title">{{contactobject.email}}</h1>
+    <ul class="list-unstyled mt-3 mb-4">
+      <li>{{contactobject.phone}}</li>
+      <li>{{contactobject.company.catchPhrase}}</li>
+
+    </ul>
+    <button type="button" class="btn btn-lg btn-block btn-danger" (click)="loadContact()">Update</button>
+    <button type="button" class="btn btn-lg btn-block btn-danger" (click)="deleteContact(contactobject.id)">Delete</button>
+    <br>
+    <div *ngIf="isDeleted" class="alert alert-success">
+      Contact deleted->
+      <a routerLink="/7">Go back to contacts page</a>
+    </div>
+  </div>
+
+
+  <div *ngIf="editcontactobject" class="text-left modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalCenterTitle">Modal title</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="form-group">
+              <label>Name</label>
+              <input type="text" class="form-control" placeholder="Enter Full Name" name="newName" [(ngModel)]="editcontactobject.name">
+              <small class="form-text text-muted">Enter full name.</small>
+            </div>
+            <div class="form-group">
+              <label>Email address</label>
+              <input type="email" class="form-control" placeholder="Enter email" name="newEmail" [(ngModel)]="editcontactobject.email">
+              <small class="form-text text-muted">We'll never share your email with anyone else.</small>
+            </div>
+            <div class="form-group">
+              <label>Phone Number</label>
+              <input type="test" class="form-control" placeholder="Enter Phone Number" name="newPhone" [(ngModel)]="editcontactobject.phone">
+            </div>
+            <div class="form-group">
+              <label>Remarks</label>
+              <input type="text" class="form-control" placeholder="Enter Remarks" name="newremark" [(ngModel)]="editcontactobject.remark">
+              <small class="form-text text-muted">Enter Remarks if any.</small>
+            </div>
+
+
+          </form>
+          <div class="container alert alert-success text-center" role="alert" *ngIf=Isupdated>
+            Contact succesfully Updated -->Redirecting to All contacts Page
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" (click)="updateContac()">Update changes</button>
+        </div>
+
+
+      </div>
+    </div>
+
+  </div>
+
+</div>

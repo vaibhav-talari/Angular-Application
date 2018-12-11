@@ -1,0 +1,36 @@
+<main>
+    <div>
+        <h2 style="text-align: center">Experience</h2>
+        <hr>
+        <ul id="expoadd">
+            <li *ngFor="let state of experiencedata; let i = index" [attr.data-index]="i">
+                
+                <h3>{{state.head}}</h3>
+                <button (click)="onItemDeleted(i)" style="float: right;">X</button>
+                <p>{{state.body}}</p>
+                
+            </li>
+            
+            <li *ngFor="let task of items; let j = index" [attr.data-index]="j">
+                <h2>{{task.code}}</h2>
+                <button (click)="onItemDeleted('j+100')" style="float: right;">X</button>
+                <p>{{task.name}}</p>
+                </li>
+        </ul>
+    </div>
+    <form>
+        <div class="row">
+            <div class="col">
+                <input type="text" name="Head" [(ngModel)]="newattribute.code" class="form-control"  placeholder="Enter Heading">
+            </div>
+            <div class="col">
+                <input type="text" name="Body" [(ngModel)]="newattribute.name" class="form-control"  placeholder="Enter Entervalue">
+            </div>
+        </div>
+        <br>
+        <div>
+            <input type="button" class="btn btn-primary btn-lg btn-block" value="Add" (click)="Addheadbody()">
+        </div>
+    </form>
+ 
+</main>
